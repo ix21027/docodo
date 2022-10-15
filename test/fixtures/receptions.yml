@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 2022-10-14 11:55:21
+  doctor: one
+  patient: one
+  open: false
+
+two:
+  time: 2022-10-14 11:55:21
+  doctor: two
+  patient: two
+  open: false

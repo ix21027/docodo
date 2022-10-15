@@ -1,0 +1,10 @@
+<%- if controller_name != 'sessions' %>
+  <%= link_to "Log in", new_session_path(resource_name) %><br />
+<% end %>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to "Sign up as patient", new_patient_registration_path %><br />
+  
+  <%= link_to "or Log in as doctor", new_doctor_session_path if :doctor != resource_name %><br />
+<% end %>
+
