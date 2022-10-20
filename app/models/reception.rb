@@ -6,7 +6,7 @@ class Reception < ApplicationRecord
   validate :check_limit_for_open_receptions, on: :create
 
   def check_limit_for_open_receptions
-    if self.doctor.receptions.where(open: true).size > MAX_OPEN_RECEPTIONS
+    if Reception.where(open: true, doctor: self.doctor).size > MAX_OPEN_RECEPTIONS
       errors.add(:limit_for_open_receptions, "is reached")
     end
   end
