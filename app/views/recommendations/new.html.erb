@@ -1,0 +1,6 @@
+<%= form_with model: @recommendation do |f| %>  
+  <%= f.collection_select(:reception_id, Reception.active, :id, :time, prompt: 'Please select the reception')   %>
+  <%= f.text_field :text %>  
+  <%= f.submit "Create" %>  
+<% end %>  
+<%# , url: { action: "create" }  %>

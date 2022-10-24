@@ -1,0 +1,9 @@
+<%= form_with model: @reception do |f| %>  
+  <%= f.hidden_field :doctor_id, value: @reception.doctor_id %>
+  <%= f.datetime_field :time, min: Date.today %>  
+
+  <%= f.submit "Create" %>  
+<% end %>  
+<br>
+<%= link_to "Back", :back %>
+<br>

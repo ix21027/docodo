@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_10_14_085819) do
   end
 
   create_table "receptions", force: :cascade do |t|
-    t.datetime "time"
+    t.datetime "time", null: false
     t.integer "doctor_id", null: false
     t.integer "patient_id", null: false
     t.boolean "open", default: true, null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2022_10_14_085819) do
 
   create_table "recommendations", force: :cascade do |t|
     t.integer "reception_id", null: false
-    t.text "text"
+    t.text "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["reception_id"], name: "index_recommendations_on_reception_id"

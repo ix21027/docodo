@@ -1,0 +1,8 @@
+<% @specialties.each do |specialty| %>
+  <%= link_to "#{specialty.name}s", doctors_index_path(name: specialty.name) %>
+  <br>
+<% end %>
+
+<br>
+<%= link_to "Back", :back %>
+<br>

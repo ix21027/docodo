@@ -1,0 +1,8 @@
+<h3>Receptions:</h3>
+<% @receptions.each do |reception| %>
+  <%= reception.time %>
+  <br>
+<% end %>
+
+<%= link_to "Recommendations", recommendations_path %>
+<br>

@@ -1,0 +1,11 @@
+<% @doctors.each do |doctor| %>
+  <%#= doctor.phone %> 
+    <%= link_to "Make an appointment with a doctor #{doctor.phone}", new_reception_path(doctor_id: doctor.id) %>
+
+<% end %>
+
+<br>
+<%#= link_to "Make an appointment with a doctor", new_reception_path %>
+<br>
+<%= link_to "Back", specialties_index_path %>
+<br>
