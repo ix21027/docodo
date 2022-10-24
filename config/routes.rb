@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :specialties
     resources :doctors
     resources :patients
-    resources :receptions
-    resources :recommendations
+    # resources :receptions
+    # resources :recommendations
 
     root to: "doctors#index"
   end
