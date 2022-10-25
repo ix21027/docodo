@@ -1,4 +1,6 @@
 class ReceptionsController < ApplicationController
+  before_action :authenticate_patient!
+  
   def index
     @receptions = Reception.active
   end

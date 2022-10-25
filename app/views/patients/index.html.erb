@@ -1,0 +1,15 @@
+<h3> Patients </h3>
+
+<% @patients_phones.each do |phone| %> 
+  <%= phone %> 
+  <br>
+<% end %>
+
+<br>
+<%= link_to 'New Recommendation', new_recommendation_path if @any_receptions %>
+<%= "You don't have any open receptions." unless @any_receptions %>
+<br>
+
+<%= link_to "Recommendations for my patients", recommendations_path %>
+<br>
+<br>

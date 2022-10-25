@@ -1,5 +1,5 @@
 <% @specialties.each do |specialty| %>
-  <%= link_to "#{specialty.name}s", doctors_index_path(name: specialty.name) %>
+  <%= link_to "#{specialty.name}s", doctors_path(name: specialty.name) %>
   <br>
 <% end %>
 

@@ -1,4 +1,11 @@
 class RecommendationsController < ApplicationController
+  before_action :authenticate_doctor!, only: [:new, :create]
+  before_action :authenticate_patient!, only: :index, unless: -> { current_doctor || current_patient }
+
+  # before_action only: :index do
+  #   redirect_to new_patient_session_path unless current_doctor || current_patient
+  # end
+
   def index
     @recommendations = current_patient.recommendations if current_patient
     @recommendations = current_doctor.recommendations if current_doctor
