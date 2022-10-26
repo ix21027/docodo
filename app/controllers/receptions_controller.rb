@@ -12,9 +12,12 @@ class ReceptionsController < ApplicationController
   def create
     Reception.create! reception_params.merge(patient_id: current_patient.id)
     redirect_to receptions_path
+  rescue 
+    render :new, status: :unprocessable_entity
   end
 
   private
+  
   def reception_params
     params.require(:reception).permit(:doctor_id, :time)
   end
