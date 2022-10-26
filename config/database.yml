@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: docodo_production
   username: docodo
   password: <%= ENV['DOCODO_DATABASE_PASSWORD'] %>
