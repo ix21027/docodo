@@ -2,7 +2,7 @@
 #
 # Table name: doctors
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint           not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  phone                  :string           default(""), not null
@@ -11,7 +11,7 @@
 #  reset_password_token   :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  specialty_id           :integer          not null
+#  specialty_id           :bigint           not null
 #
 # Indexes
 #
@@ -21,7 +21,7 @@
 #
 # Foreign Keys
 #
-#  specialty_id  (specialty_id => specialties.id)
+#  fk_rails_...  (specialty_id => specialties.id)
 #
 class Doctor < ApplicationRecord
   include Devisable

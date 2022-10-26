@@ -2,13 +2,13 @@
 #
 # Table name: receptions
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  open       :boolean          default(TRUE), not null
 #  time       :datetime         not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  doctor_id  :integer          not null
-#  patient_id :integer          not null
+#  doctor_id  :bigint           not null
+#  patient_id :bigint           not null
 #
 # Indexes
 #
@@ -17,8 +17,8 @@
 #
 # Foreign Keys
 #
-#  doctor_id   (doctor_id => doctors.id)
-#  patient_id  (patient_id => patients.id)
+#  fk_rails_...  (doctor_id => doctors.id)
+#  fk_rails_...  (patient_id => patients.id)
 #
 class Reception < ApplicationRecord
   MAX_OPEN_RECEPTIONS = 10

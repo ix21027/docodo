@@ -2,11 +2,11 @@
 #
 # Table name: recommendations
 #
-#  id           :integer          not null, primary key
+#  id           :bigint           not null, primary key
 #  text         :text             not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  reception_id :integer          not null
+#  reception_id :bigint           not null
 #
 # Indexes
 #
@@ -14,7 +14,7 @@
 #
 # Foreign Keys
 #
-#  reception_id  (reception_id => receptions.id)
+#  fk_rails_...  (reception_id => receptions.id)
 #
 class Recommendation < ApplicationRecord
   belongs_to :reception

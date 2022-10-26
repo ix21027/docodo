@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2022_10_14_085819) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admins", force: :cascade do |t|
     t.string "phone", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: 6
+    t.datetime "remember_created_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["phone"], name: "index_admins_on_phone", unique: true
@@ -26,13 +29,13 @@ ActiveRecord::Schema.define(version: 2022_10_14_085819) do
   end
 
   create_table "doctors", force: :cascade do |t|
-    t.integer "specialty_id", null: false
+    t.bigint "specialty_id", null: false
     t.string "phone", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: 6
+    t.datetime "remember_created_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["phone"], name: "index_doctors_on_phone", unique: true
@@ -54,9 +57,9 @@ ActiveRecord::Schema.define(version: 2022_10_14_085819) do
   end
 
   create_table "receptions", force: :cascade do |t|
-    t.datetime "time", null: false
-    t.integer "doctor_id", null: false
-    t.integer "patient_id", null: false
+    t.datetime "time", precision: 6, null: false
+    t.bigint "doctor_id", null: false
+    t.bigint "patient_id", null: false
     t.boolean "open", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -65,7 +68,7 @@ ActiveRecord::Schema.define(version: 2022_10_14_085819) do
   end
 
   create_table "recommendations", force: :cascade do |t|
-    t.integer "reception_id", null: false
+    t.bigint "reception_id", null: false
     t.text "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
