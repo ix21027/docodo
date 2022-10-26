@@ -1,24 +1,12 @@
-# README
+ruby 3.1.2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Для кожного виду користувачів (Patient, Doctor, Admin) необхідно реалізувати наступний функціонал:
+Пацієнт може зареєструватися, увійти до свого особистого кабінету (Profile),
+переглядати список лікарів за категоріями, записатися на прийом, отримати
+рекомендації від лікаря після прийому.
+Лікар може увійти в особистий кабінет (Profile), переглянути список пацієнтів, що
+записалися, надати рекомендації пацієнту. Лікар може відноситися до певної
+категорії (терапевт, кардіолог тощо).
+Адмін має доступ до списку пацієнтів та лікарів. Може створювати категорії, лікарів,
+асайнити певного лікаря до категорії (можна реалізувати через
+ActiveAdmin/Administrate). У лікаря може бути лише 10 відкритих записів (одночасно); запис автоматично закривається (не видаляється) після того, як лікар напише користувачеві рекомендацію;
