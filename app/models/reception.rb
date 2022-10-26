@@ -26,7 +26,7 @@ class Reception < ApplicationRecord
   belongs_to :patient
   has_one :recommendation 
   validate :check_limit_for_open_receptions, on: :create
-  scope :active, -> { where(open: true) }
+  scope :opens, -> { where(open: true) }
 
   def check_limit_for_open_receptions
     if Reception.where(open: true, doctor: self.doctor).size > MAX_OPEN_RECEPTIONS

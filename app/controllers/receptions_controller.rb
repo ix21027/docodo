@@ -2,7 +2,7 @@ class ReceptionsController < ApplicationController
   before_action :authenticate_patient!
   
   def index
-    @receptions = Reception.active
+    @receptions = Reception.opens
   end
 
   def new
