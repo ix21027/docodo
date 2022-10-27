@@ -12,10 +12,12 @@ class RecommendationsController < ApplicationController
   end
 
   def create
-    Recommendation.create!(recommendation_params)
-    redirect_to recommendations_path
-  rescue 
-    render :new, status: :unprocessable_entity
+    recommendation = Recommendation.create(recommendation_params)
+    if recommendation.valid?
+      redirect_to recommendations_path
+    else
+      redirect_to new_recommendation_path, alert: "error: #{recommendation.errors.full_messages.join('; ')}"
+    end
   end
 
   private

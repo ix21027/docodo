@@ -10,10 +10,13 @@ class ReceptionsController < ApplicationController
   end
 
   def create
-    Reception.create! reception_params.merge(patient_id: current_patient.id)
-    redirect_to receptions_path
-  rescue 
-    render :new, status: :unprocessable_entity
+    reception = Reception.create(reception_params.merge(patient_id: current_patient.id))
+    if reception.valid?
+      redirect_to receptions_path
+    else
+      redirect_to new_reception_path(doctor_id: reception_params[:doctor_id]),
+        alert: "error: #{reception.errors.full_messages.join('; ')}"
+    end
   end
 
   private
